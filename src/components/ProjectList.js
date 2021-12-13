@@ -3,7 +3,6 @@ import { ProjectCard } from './ProjectCard'
 
 export const ProjectList = ({ projects }) => {
 
-    console.log(projects)
     return (
         <div>
             {projects.map((project) =>
