@@ -1,5 +1,6 @@
 import React, { useState } from "react"
 import { Form, Button } from "react-bootstrap"
+import { useNavigate } from "react-router-dom"
 
 export const ProjectForm = ({ 
     createProject 
@@ -13,6 +14,7 @@ export const ProjectForm = ({
     const [description, setDescription] = useState('')
     const [githubLink, setGithubLink] = useState('')
     const [title, setTitle] = useState('')
+    const navigate = useNavigate()
 
 
     const addProject = (event) => {
@@ -38,6 +40,8 @@ export const ProjectForm = ({
         setDescription('')
         setGithubLink('')
         setTitle('')
+
+        navigate("/projects")
     }
     
     return (
