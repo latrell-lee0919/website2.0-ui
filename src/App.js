@@ -7,7 +7,6 @@ import { ProjectForm } from './components/ProjectForm'
 import {
   Routes,
   Route,
-  //useParams,
 } from "react-router-dom"
 import projectService from './services/projects'
 import { ProjectView } from './components/ProjectView';
@@ -30,11 +29,6 @@ const App = () => {
         setProjects(projects.concat(returnedProject))
     })
 }
-
-// const match = useParams()
-// console.log(match)
-// const project = match.id ? projects.find(project => project.id === Number(match.id)) : null
-
 
   return (
     <div className="container">

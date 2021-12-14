@@ -21,11 +21,6 @@ export const ProjectCard = ({ project }) => {
                 </Card.Body>
             </Card>
             
-            {project.category}
-            {project.description}
-            {project.githubLink}
-            {project.link}
-            {project.techStack}
         </div>
     )
 }
