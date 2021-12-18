@@ -1,15 +1,17 @@
 import React, { useState, useEffect } from 'react'
 //import { useField } from './hooks'
 import { Home } from './components/Home';
-import { Navigation } from './components/Navigation';
-import { ProjectList } from './components/ProjectList';
+import { Navigation } from './components/Navigation'
+import { ProjectList } from './components/ProjectList'
 import { ProjectForm } from './components/ProjectForm'
+import { ProjectView } from './components/ProjectView'
+import { Login } from './components/Login';
 import {
   Routes,
   Route,
 } from "react-router-dom"
 import projectService from './services/projects'
-import { ProjectView } from './components/ProjectView';
+
 
 const App = () => {
   const [ projects, setProjects ] = useState([])
@@ -34,6 +36,7 @@ const App = () => {
     <div className="container">
       <Navigation />
       <Routes>
+        <Route path="/login" element={<Login />}/>
         <Route path="/projects" element={<ProjectList projects={projects} />}/>
         <Route path="/projects/:id" element={<ProjectView projects={projects} />}/>
         <Route path="/create" element={<ProjectForm createProject={addProject} />}/> {/* 
