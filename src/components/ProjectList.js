@@ -4,7 +4,7 @@ import { ProjectCard } from './ProjectCard'
 export const ProjectList = ({ projects, user, setProjects }) => {
 
     return (
-        <div>
+        <div className="container">
             {projects.map((project) =>
                 <ProjectCard 
                 key={project.id}

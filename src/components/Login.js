@@ -84,7 +84,7 @@ export const Login = ({ setUser }) => {
     }
 
     return (
-        <div>
+        <div className="container">
             {firstLogin ? (
                 <Form>
                     <Form.Group>

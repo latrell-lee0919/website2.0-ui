@@ -5,7 +5,7 @@ import { Navigation } from './components/Navigation'
 import { ProjectList } from './components/ProjectList'
 import { ProjectForm } from './components/ProjectForm'
 import { ProjectView } from './components/ProjectView'
-import { Login } from './components/Login';
+import { Login } from './components/Login'
 import {
   Routes,
   Route,
@@ -34,7 +34,7 @@ const App = () => {
 }
 
   return (
-    <div className="container">
+    <div>
       <Navigation user={user}/>
       <Routes>
         <Route path="/login" element={<Login setUser={setUser}/>}/>

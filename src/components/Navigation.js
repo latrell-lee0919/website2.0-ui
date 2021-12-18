@@ -20,9 +20,6 @@ export const Navigation = ({ user }) => {
                     <Link style={padding} to="/projects">Projects</Link>
                 </Nav.Link>
                 <Nav.Link href="#" as="span">
-                    <Link style={padding} to="#">Contact</Link>
-                </Nav.Link>
-                <Nav.Link href="#" as="span">
                     {user
                       ?  <Link style={padding} to="/create">Add New</Link>
                       : null

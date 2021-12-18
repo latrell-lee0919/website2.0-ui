@@ -45,7 +45,7 @@ export const ProjectForm = ({
     }
     
     return (
-        <div>
+        <div className="container">
             <h2>Add New Project</h2>
             <Form onSubmit={addProject}>
                 <Form.Group>
