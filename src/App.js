@@ -15,6 +15,7 @@ import projectService from './services/projects'
 
 const App = () => {
   const [ projects, setProjects ] = useState([])
+  const [ user, setUser ] = useState(null)
 
   useEffect(() => {
     projectService
@@ -34,14 +35,12 @@ const App = () => {
 
   return (
     <div className="container">
-      <Navigation />
+      <Navigation user={user}/>
       <Routes>
-        <Route path="/login" element={<Login />}/>
-        <Route path="/projects" element={<ProjectList projects={projects} />}/>
+        <Route path="/login" element={<Login setUser={setUser}/>}/>
+        <Route path="/projects" element={<ProjectList projects={projects} user={user} setProjects={setProjects}/>}/>
         <Route path="/projects/:id" element={<ProjectView projects={projects} />}/>
-        <Route path="/create" element={<ProjectForm createProject={addProject} />}/> {/* 
-        this is where we conditionally render based on if i'm logged in
-        */}
+        <Route path="/create" element={<ProjectForm createProject={addProject} />}/> 
         <Route path="/" element={<Home />}/>
       </Routes>
     </div>

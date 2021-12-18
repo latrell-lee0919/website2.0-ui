@@ -2,15 +2,14 @@ import React, { useState } from "react"
 import { Form, Button } from "react-bootstrap"
 import { useNavigate } from "react-router-dom"
 import * as AmazonCognitoIdentity from 'amazon-cognito-identity-js'
-import * as AWS from 'aws-sdk'
 
-export const Login = () => {
+export const Login = ({ setUser }) => {
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
-    const [attributes, setAttributes] = useState({ phone_number_verfied: "", phone_number: "", email: "" })
     const [newPassword, setNewPassword] = useState('')
     const [firstLogin, setFirstLogin] = useState(false)
-    var cognitoUser, sessionUserAttributes
+    const navigate = useNavigate()
+    var cognitoUser
 
     const authenticationData = {
         Username: username,
@@ -38,38 +37,10 @@ export const Login = () => {
     function login(event) {
         event.preventDefault()
 
-        console.log(username)
-        console.log(password)
-
         cognitoUser.authenticateUser(authenticationDetails, {
             onSuccess: result => {
-                console.log(result)
-                const accessToken = result.getAccessToken().getJwtToken()
-                console.log(accessToken)
-        
-                // //POTENTIAL: Region needs to be set if not already set previously elsewhere.
-                // AWS.config.region = 'us-east-1'
-        
-                // AWS.config.credentials = new AWS.CognitoIdentityCredentials({
-                //     IdentityPoolId: '...', // your identity pool id here
-                //     Logins: {
-                //         // Change the key below according to the specific region your user pool is in.
-                //         'cognito-idp.<region>.amazonaws.com/<YOUR_USER_POOL_ID>': result
-                //             .getIdToken()
-                //             .getJwtToken(),
-                //     },
-                // });
-        
-                // //refreshes credentials using AWS.CognitoIdentity.getCredentialsForIdentity()
-                // AWS.config.credentials.refresh(error => {
-                //     if (error) {
-                //         console.error(error)
-                //     } else {
-                //         // Instantiate aws sdk service objects now that the credentials have been updated.
-                //         // example: var s3 = new AWS.S3();
-                //         console.log('Successfully logged!');
-                //     }
-                // });
+                setUser(cognitoUser.username)
+                navigate("/")
             },
         
             onFailure: err => {
@@ -77,11 +48,6 @@ export const Login = () => {
             },
             newPasswordRequired: userAttributes => {
                 setFirstLogin(true)
-                
-                delete userAttributes.email_verified
-                setAttributes(userAttributes)
-
-                sessionUserAttributes = userAttributes
             }
         })
         

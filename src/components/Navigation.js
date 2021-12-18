@@ -3,7 +3,7 @@ import { Navbar, Nav } from "react-bootstrap"
 import { Link } from "react-router-dom"
 
 
-export const Navigation = () => {
+export const Navigation = ({ user }) => {
     const padding = {
         paddingRight: 5
     }
@@ -20,17 +20,14 @@ export const Navigation = () => {
                     <Link style={padding} to="/projects">Projects</Link>
                 </Nav.Link>
                 <Nav.Link href="#" as="span">
-                    <Link style={padding} to="/create">Add New</Link>
-                </Nav.Link>
-                <Nav.Link href="#" as="span">
                     <Link style={padding} to="#">Contact</Link>
                 </Nav.Link>
-                {/* <Nav.Link href="#" as="span">
+                <Nav.Link href="#" as="span">
                     {user
-                    ? <Link style={padding} to="/add">login</Link>
-                    : null
+                      ?  <Link style={padding} to="/create">Add New</Link>
+                      : null
                     }
-                </Nav.Link> */}
+                </Nav.Link>
                 </Nav>
             </Navbar.Collapse>
         </Navbar>
