@@ -18,7 +18,7 @@ export const ProjectCard = ({ project, user, setProjects, projects }) => {
 
     return (
         <div>
-            <Card>
+            <Card style={{ width: '18rem' }}>
                 <Card.Img variant="top" src={project.imageUrl}/>
                 <Card.Body>
                     <Card.Title>{project.title}</Card.Title>

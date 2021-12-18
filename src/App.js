@@ -6,6 +6,7 @@ import { ProjectList } from './components/ProjectList'
 import { ProjectForm } from './components/ProjectForm'
 import { ProjectView } from './components/ProjectView'
 import { Login } from './components/Login'
+import { Footer } from './components/Footer';
 import {
   Routes,
   Route,
@@ -43,6 +44,7 @@ const App = () => {
         <Route path="/create" element={<ProjectForm createProject={addProject} />}/> 
         <Route path="/" element={<Home />}/>
       </Routes>
+      <Footer />
     </div>
   );
 }
