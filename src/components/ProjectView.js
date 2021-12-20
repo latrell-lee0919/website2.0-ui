@@ -31,8 +31,8 @@ export const ProjectView = () => {
     }
    
     const opts = {
-        height: '390',
-        width: '640',
+        height: '400',
+        width: '700',
         playerVars: {
           autoplay: 1,
         },

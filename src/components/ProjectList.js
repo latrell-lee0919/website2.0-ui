@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { ProjectCard } from './ProjectCard'
-import { Dropdown, Container, Row, Col, Button, ButtonToolbar } from 'react-bootstrap'
+import { Dropdown, Container, Row, Button, ButtonToolbar } from 'react-bootstrap'
 
 export const ProjectList = ({ projects, user, setProjects }) => {
     const [newFilter, setNewFilter] = useState('')
