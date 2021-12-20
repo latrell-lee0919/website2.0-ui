@@ -83,8 +83,12 @@ export const Login = ({ setUser }) => {
         
     }
 
+    const styling = {
+        paddingTop: "60px"
+    }
+
     return (
-        <div className="container">
+        <div className="container" style={styling}>
             {firstLogin ? (
                 <Form>
                     <Form.Group>

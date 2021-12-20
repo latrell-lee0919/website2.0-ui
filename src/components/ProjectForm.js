@@ -43,9 +43,13 @@ export const ProjectForm = ({
 
         navigate("/projects")
     }
+
+    const styling = {
+        paddingTop: "60px"
+    }
     
     return (
-        <div className="container">
+        <div className="container" style={styling}>
             <h2>Add New Project</h2>
             <Form onSubmit={addProject}>
                 <Form.Group>

@@ -8,8 +8,12 @@ export const Footer = () => {
         paddingRight: 5
     }
 
+    const color = {
+        backgroundColor: "#808080"
+    }
+
     return (
-        <Navbar fixed="bottom" bg="dark" variant="dark">
+        <Navbar fixed="bottom" style={color}>
             <Nav className="ml-auto">
                 <Nav.Link href="#" as="span">
                         <Link style={padding} to="/"><Image src={websiteLogo} width={175} height={30}/></Link>

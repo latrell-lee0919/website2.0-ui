@@ -16,12 +16,14 @@ export const TopView = () => {
     return (
         <div style={color}>
             <Container style={style1}>
-                <Row>
-                    <Col sm={true}>
+                <Row className="justify-content-md-center">
+                    <Col xs lg="3">
                         <Image src={mainPhoto} width={250} height={250} roundedCircle/>
                     </Col>
-                    <Col sm={true}>
-                        <h1>Welcome to my website.</h1>
+                    <Col md="auto">
+                        <h1>Welcome to my website! I'm Latrell.</h1>
+                        <p>Developer and Mentor with 1 year of working experience.</p>
+                        <p>Passionate about social justice, educational equity, and building cool stuff.</p>
                     </Col>
                 </Row>
             </Container>
