@@ -3,8 +3,12 @@ import { ProjectCard } from './ProjectCard'
 
 export const ProjectList = ({ projects, user, setProjects }) => {
 
+    const style = {
+        paddingTop: "60px"
+    }
+
     return (
-        <div className="container">
+        <div className="container" style={style}>
             {projects.map((project) =>
                 <ProjectCard 
                 key={project.id}
