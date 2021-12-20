@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react"
 import YouTube from 'react-youtube'
 import { useParams } from "react-router"
+import { Button, Container } from 'react-bootstrap'
 import projectService from '../services/projects'
 
 
@@ -21,6 +22,13 @@ export const ProjectView = () => {
         justifyContent: "center",
         alignItems: "center"
     }
+
+    const center = {
+        paddingTop: "20px",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center"
+    }
    
     const opts = {
         height: '390',
@@ -31,15 +39,23 @@ export const ProjectView = () => {
     }
 
     return (
-        <div>
+        <Container>
             <div style={videoStyle}>
                 <YouTube videoId={project.videoId} opts={opts}/>
             </div>
-            {project.category}
-            {project.description}
-            {project.githubLink}
-            {project.link}
-            {project.techStack}
-        </div>
+            <div style={center}>
+                <h5>Built with: {project.techStack}</h5>
+            </div>
+            <div style={center}>
+                <p>{project.description}</p>
+            </div>
+            <div style={center}>
+                <Button href={project.githubLink} variant="info">Github Link</Button>
+            </div>
+            <div style={center}>
+                <Button href={project.link} variant="info">Deployed Link</Button>
+            </div>
+        </Container>
+        
     )
 }
