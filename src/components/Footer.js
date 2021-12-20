@@ -16,7 +16,7 @@ export const Footer = () => {
         <Navbar fixed="bottom" style={color}>
             <Nav className="ml-auto">
                 <Nav.Link href="#" as="span">
-                        <Link style={padding} to="/"><Image src={websiteLogo} width={175} height={30}/></Link>
+                        <Link style={padding} to="/"><Image src={websiteLogo} width={100} height={30}/></Link>
                 </Nav.Link>
             </Nav>
         </Navbar>

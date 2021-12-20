@@ -4,7 +4,7 @@ import { Link } from "react-router-dom"
 import * as AmazonCognitoIdentity from 'amazon-cognito-identity-js'
 
 
-export const Navigation = ({ user }) => {
+export const Navigation = ({ user, setUser }) => {
     var cognitoUser
 
     const poolData = {
@@ -23,6 +23,7 @@ export const Navigation = ({ user }) => {
 
     const logout = () => {
         cognitoUser.signOut()
+        setUser(null)
     }
 
     const padding = {

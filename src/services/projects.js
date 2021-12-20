@@ -13,14 +13,8 @@ const getAuthenticatedUser = () => {
     return userPool.getCurrentUser()
 }
 
-var token
 
-getAuthenticatedUser().getSession((err, session) => {
-    if (err) {
-        console.log(err)
-    }
-   token = session.getIdToken().getJwtToken()
-})
+
 
 const baseUrl = process.env.REACT_APP_BASE_URL
 
@@ -35,6 +29,15 @@ const get = async (id) => {
 }
 
 const create = async (newObject) => {
+    var token
+
+    getAuthenticatedUser().getSession((err, session) => {
+        if (err) {
+            console.log(err)
+        }
+    token = session.getIdToken().getJwtToken()
+    })
+
     const config = {
         headers: { Authorization: token }
     }
@@ -43,6 +46,15 @@ const create = async (newObject) => {
 }
 
 const remove = async (id) => {
+    var token
+
+    getAuthenticatedUser().getSession((err, session) => {
+        if (err) {
+            console.log(err)
+        }
+    token = session.getIdToken().getJwtToken()
+    })
+    
     const config = {
         headers: { Authorization: token }
     }
