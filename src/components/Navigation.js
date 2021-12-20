@@ -1,9 +1,30 @@
 import React from "react"
-import { Navbar, Nav } from "react-bootstrap"
+import { Navbar, Nav, Button } from "react-bootstrap"
 import { Link } from "react-router-dom"
+import * as AmazonCognitoIdentity from 'amazon-cognito-identity-js'
 
 
 export const Navigation = ({ user }) => {
+    var cognitoUser
+
+    const poolData = {
+        UserPoolId: process.env.REACT_APP_USER_POOL_ID, 
+        ClientId: process.env.REACT_APP_CLIENT_ID 
+    }
+
+    const userPool = new AmazonCognitoIdentity.CognitoUserPool(poolData)
+
+    const userData = {
+        Username: process.env.REACT_APP_USERNAME, 
+        Pool: userPool
+    }
+
+    cognitoUser = new AmazonCognitoIdentity.CognitoUser(userData)
+
+    const logout = () => {
+        cognitoUser.signOut()
+    }
+
     const padding = {
         paddingRight: 5
     }
@@ -26,6 +47,10 @@ export const Navigation = ({ user }) => {
                     }
                 </Nav.Link>
                 </Nav>
+                {user 
+                  ? <Nav className="ml-auto"><Button variant="danger" onClick={logout}>Log Out</Button></Nav>
+                  : null
+                } 
             </Navbar.Collapse>
         </Navbar>
     )

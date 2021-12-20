@@ -18,7 +18,7 @@ export const TopView = () => {
             <Container style={style1}>
                 <Row className="justify-content-md-center">
                     <Col xs lg="3">
-                        <Image src={mainPhoto} width={250} height={250} roundedCircle/>
+                        <Image src={mainPhoto} width={225} height={225} roundedCircle/>
                     </Col>
                     <Col md="auto">
                         <h1>Welcome to my website! I'm Latrell.</h1>
