@@ -1,6 +1,7 @@
 import React from "react"
 import { About } from "./About"
 import { TopView } from "./TopView"
+import { Connect } from "./Connect"
 
 export const Home = () => {
 
@@ -8,10 +9,7 @@ export const Home = () => {
         <div>
             <TopView />
             <About />
-            {/*start of the contact component for home page */}
-            {/*end of the contact component for home page */}
-            {/*start of connect with me component */}
-
+            <Connect />
         </div>
     )
 }

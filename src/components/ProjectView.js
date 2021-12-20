@@ -1,11 +1,27 @@
-import React from "react"
+import React, { useState, useEffect } from "react"
 import YouTube from 'react-youtube'
 import { useParams } from "react-router"
+import projectService from '../services/projects'
 
 
-export const ProjectView = ({ projects }) => {
-    const match = useParams()
-    const project = match.id ? projects.find(project => project.id === match.id) : null
+export const ProjectView = () => {
+    const [ project, setProject ] = useState([])
+    const match = useParams() 
+    useEffect(() => {
+        projectService
+        .get(match.id)
+        .then(project => {
+          setProject(project)
+        })
+      }, [match.id])
+
+    const videoStyle = {
+        paddingTop: "70px",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center"
+    }
+   
     const opts = {
         height: '390',
         width: '640',
@@ -16,7 +32,9 @@ export const ProjectView = ({ projects }) => {
 
     return (
         <div>
-            <YouTube videoId={project.videoId} opts={opts}/>
+            <div style={videoStyle}>
+                <YouTube videoId={project.videoId} opts={opts}/>
+            </div>
             {project.category}
             {project.description}
             {project.githubLink}

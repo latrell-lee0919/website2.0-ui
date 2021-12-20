@@ -3,6 +3,8 @@ import { ProjectCard } from './ProjectCard'
 
 export const ProjectList = ({ projects, user, setProjects }) => {
 
+    console.log(projects)
+
     const style = {
         paddingTop: "60px"
     }

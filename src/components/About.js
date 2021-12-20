@@ -14,7 +14,7 @@ export const About = () => {
     }
 
     const style3 = {
-        paddingTop: "40px",
+        paddingTop: "30px",
     }
 
     const style4 = {

@@ -6,7 +6,7 @@ import { ProjectList } from './components/ProjectList'
 import { ProjectForm } from './components/ProjectForm'
 import { ProjectView } from './components/ProjectView'
 import { Login } from './components/Login'
-import { Footer } from './components/Footer';
+import { Footer } from './components/Footer'
 import {
   Routes,
   Route,
@@ -40,7 +40,7 @@ const App = () => {
       <Routes>
         <Route path="/login" element={<Login setUser={setUser}/>}/>
         <Route path="/projects" element={<ProjectList projects={projects} user={user} setProjects={setProjects}/>}/>
-        <Route path="/projects/:id" element={<ProjectView projects={projects} />}/>
+        <Route path="/projects/:id" element={<ProjectView />}/>
         <Route path="/create" element={<ProjectForm createProject={addProject} />}/> 
         <Route path="/" element={<Home />}/>
       </Routes>
