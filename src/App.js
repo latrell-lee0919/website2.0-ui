@@ -10,6 +10,7 @@ import { Footer } from './components/Footer'
 import {
   Routes,
   Route,
+  Navigate
 } from "react-router-dom"
 import projectService from './services/projects'
 
@@ -44,7 +45,13 @@ const App = () => {
         <Route path="/login" element={<Login setUser={setUser}/>}/>
         <Route path="/projects" element={<ProjectList projects={projects} user={user} setProjects={setProjects}/>}/>
         <Route path="/projects/:id" element={<ProjectView />}/>
-        <Route exact path="/create" element={<ProjectForm createProject={addProject} />}/> 
+        <Route exact path="/create" element={
+          user ? (
+          <ProjectForm createProject={addProject} />
+          ) : (
+            <Navigate to="/" />
+          )
+        }/> 
         <Route path="/" element={<Home />}/>
       </Routes>
       <Footer />
