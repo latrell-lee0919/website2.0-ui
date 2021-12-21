@@ -45,7 +45,8 @@ export const ProjectForm = ({
     }
 
     const styling = {
-        paddingTop: "60px"
+        paddingTop: "60px",
+        paddingBottom: "90px"
     }
     
     return (

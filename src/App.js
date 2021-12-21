@@ -34,8 +34,6 @@ const App = () => {
         setProjects(projects.concat(returnedProject))
     })
   }
-
-  console.log(user)
   
 
   return (
