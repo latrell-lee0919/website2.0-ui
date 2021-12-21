@@ -34,34 +34,40 @@ export const ProjectList = ({ projects, user, setProjects }) => {
 
     const filtered = projects.filter(project => project.category.includes(newFilter))
 
-
-    return (
-        <Container style={style}>
-            <Row>
-                <ButtonToolbar className="mb-3">
-                    <Filter/>
-                    <Button variant="primary" onClick={() => setNewFilter('')}>
-                        Show All
-                    </Button>
-                </ButtonToolbar>
-            </Row>
-            
-            <br />
-            <Row>
-                {filtered.map((project) =>
-                <div>
-                    <ProjectCard 
-                    key={project.id}
-                    project={project}
-                    user={user}
-                    setProjects={setProjects}
-                    projects={projects}
-                    />
-                    <br/>
-                </div>  
-                )}
-            </Row>
-        </Container>
-    )
-
+    if (filtered.length === 0) {
+        return (
+            <Container style={style}>
+                <h1>Coming Soon!</h1>
+            </Container>
+        )
+    } else {
+        return (
+            <Container style={style}>
+                <Row>
+                    <ButtonToolbar className="mb-3">
+                        <Filter/>
+                        <Button variant="primary" onClick={() => setNewFilter('')}>
+                            Show All
+                        </Button>
+                    </ButtonToolbar>
+                </Row>
+                
+                <br />
+                <Row>
+                    {filtered.map((project) =>
+                    <div>
+                        <ProjectCard 
+                        key={project.id}
+                        project={project}
+                        user={user}
+                        setProjects={setProjects}
+                        projects={projects}
+                        />
+                        <br/>
+                    </div>  
+                    )}
+                </Row>
+            </Container>
+        )
+    }
 }
