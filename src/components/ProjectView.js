@@ -29,6 +29,10 @@ export const ProjectView = () => {
         justifyContent: "center",
         alignItems: "center"
     }
+
+    const style = {
+        paddingBottom: "100px"
+    }
    
     const opts = {
         height: '400',
@@ -39,7 +43,7 @@ export const ProjectView = () => {
     }
 
     return (
-        <Container>
+        <Container style={style}>
             <div style={videoStyle}>
                 <YouTube videoId={project.videoId} opts={opts}/>
             </div>
